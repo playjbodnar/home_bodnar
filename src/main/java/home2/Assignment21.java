@@ -6,7 +6,7 @@ public class Assignment21 {
 
     //проверка длинны фио
     // буква W
-    // if?
+    // if? нечетным может быть также общая длинна
 
     final static  Scanner scanner = new Scanner(System.in);
     final static int STRING_LENGTH = 100;
