@@ -5,6 +5,17 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+Задачу можно решить одним циклом
+Массивы а тем более колеекции не нужны
+Просто определяем две переменных 
+min и max и присвоиваем им максимальное и минимальное числа 
+min = 9
+max = 0
+и дальше в одном цикле извлекаем очередную цифру из числа 
+и проверяем больше ли она макимального и меньше ли минимального
+поправляем min и max
+**/
 public class Assignment22 {
 
     static int number;
