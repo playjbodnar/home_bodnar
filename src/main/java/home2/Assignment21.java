@@ -2,6 +2,19 @@ package home2;
 
 import java.util.Scanner;
 
+/**
+Нужно сделать так, чтобы рамка подстраивалась под 
+самую большую строку. В данном решение же есть конастантная ширина 100
+Вот пример большого ФИО :
+
+Print FIO
+dfgdfgdfgdfglker;gk;dlfkg;dlfkg;dflkgdfgdfgjh dfkjghdfkjghdfkjhgkdjfhgkdjfhgdfkjg kjdhfgkjdhfgkjhdfkjghdfkjghdfkjghdkfjghdfkjgh
+****************************************************************************************************
+*                                        РљСѓСЂСЃ: Java core                                       *
+*                                          РЎС‚СѓРґРµРЅС‚                                          *
+* dfgdfgdfgdfglker;gk;dlfkg;dlfkg;dflkgdfgdfgjh dfkjghdfkjghdfkjhgkdjfhgkdjfhgdfkjg kjdhfgkjdhfgkjhdfkjghdfkjghdfkjghdkfjghdfkjgh*
+****************************************************************************************************
+**/
 public class Assignment21 {
 
     //проверка длинны фио
