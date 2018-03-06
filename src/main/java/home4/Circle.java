@@ -1,5 +1,8 @@
 package home4;
 
+/**
+toString нужно переопределить во всех фигурах
+**/
 public class Circle extends Shape {
 
 
