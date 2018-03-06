@@ -20,7 +20,7 @@ public class Main {
             if (scanner.hasNextInt()){
                 try {
                     shapeFactory = ShapeSelector.getById(scanner.nextInt()).shapeFactory;
-                } catch (IllegalAccessException e) {
+                } catch (IllegalArgumentException e) {
                     System.out.println("There is no shape with such number\n ");
                 }
             }
