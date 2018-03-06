@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 abstract public class ShapeFactory {
 
+    /**
+    почему не private?
+    **/
     Scanner scanner = new Scanner(System.in);
 
     public abstract Shape create();
