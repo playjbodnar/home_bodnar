@@ -20,10 +20,9 @@ public class Rectangle extends Shape {
     public double caculatePerimeter() {
         return 2 * (width + height);
     }
-
+    
     @Override
-    protected void printParameters() {
-        System.out.printf("width = %f%n", width);
-        System.out.printf("height = %f%n", height);
+    protected void getParametersString() {
+        return String.format("width = %f%n height = %f%n", width, height);
     }
 }
