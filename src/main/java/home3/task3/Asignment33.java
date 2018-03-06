@@ -9,10 +9,11 @@ public class Asignment33 {
     static StringBuilder dataErrorString = new StringBuilder();
     static DataValidator validator = new DataValidator();
 
-    static String getDataValue(String dataTitle){
+    static String getDataValue(String dataTitle) {
+        //не надо создавать строку, лучше null присвоить
         String validatedString = new String();
         System.out.printf("enter %s %n", dataTitle);
-        if(scanner.hasNextLine()){
+        if(scanner.hasNextLine()) {            
             validatedString = scanner.nextLine();
         }
         return validatedString;
