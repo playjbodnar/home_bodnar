@@ -20,7 +20,8 @@ public class Square extends Shape {
     }
 
     @Override
-    protected void printParameters() {
-        System.out.printf("side = %f%n", side);
+    protected String getParametersString() {
+        return String.format("side = %f%n", side);
     }
+
 }

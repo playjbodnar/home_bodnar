@@ -14,8 +14,9 @@ abstract public class Shape {
     public String toString(){
         StringBuilder shapeString = new StringBuilder();
         shapeString.append(String.format("%s with parameters:%n", shapeName));
-        shapeString.append(getParametersString);
-        shapeString.append(String.format(""%n  square is %f%n  perimeter is %f",caculateSquare(),caculatePerimeter()));
+        shapeString.append(getParametersString());
+        shapeString.append(String.format("%n  square is %f%n  perimeter is %f",caculateSquare(),caculatePerimeter()));
+        return shapeString.toString();
     }
     
     

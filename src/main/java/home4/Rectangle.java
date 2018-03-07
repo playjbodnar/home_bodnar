@@ -22,7 +22,7 @@ public class Rectangle extends Shape {
     }
     
     @Override
-    protected void getParametersString() {
+    protected String getParametersString() {
         return String.format("width = %f%n height = %f%n", width, height);
     }
 }

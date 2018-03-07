@@ -24,7 +24,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    protected void getParametersString() {
+    protected String getParametersString() {
         return String.format("radius = %f%n", radius);
     }
 }

@@ -26,9 +26,8 @@ public class Triangle extends Shape {
     }
 
     @Override
-    protected void printParameters() {
-        System.out.printf("side1 = %f%n", side1);
-        System.out.printf("side2 = %f%n", side2);
-        System.out.printf("side3 = %f%n", side3);
+    protected String getParametersString() {
+        return String.format("side1 = %f%n side2 = %f%n side3 = %f%n", side1, side2,side3);
     }
+
 }

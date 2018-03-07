@@ -20,12 +20,12 @@ public class Main {
             if (scanner.hasNextInt()){
                 try {
                     shapeFactory = ShapeSelector.getById(scanner.nextInt()).shapeFactory;
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalAccessException e) {
                     System.out.println("There is no shape with such number\n ");
                 }
             }
         }
-        shapeFactory.create().printShape();
+        System.out.println(shapeFactory.create().toString());
     }
 
 }
