@@ -7,62 +7,48 @@ package calculator;
 
 import java.util.Scanner;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Root;
+import static java.lang.Double.NaN;
 
 /**
- *
  * @author Andrey
  */
 public class Calculator {
 
-    static Scanner scanner = new Scanner(System.in);
+    static Parser parser = new Parser();
 
     public double calculate(double val1, double val2, String operator) {
-        BinaryOperation operation = getOperationFor(operator);
-        if (operation == null) {
-            System.out.println("Неизвестный оператор " + operator);
-            return Double.NaN;
+        BinaryOperation operation = null;
+        try {
+            operation = new OperationMaker(operator).getOperation();
+        } catch (IndeterminableOperatorException e) {
+            System.out.println(e.toString());
+            return NaN;
         }
-
         return operation.resultFor(val1, val2);
-    }
-
-    private BinaryOperation getOperationFor(String operator) {
-        switch(operator){
-            case "+":
-                return new Addition();
-            case "-":
-                return new Substraction();
-            case "*":
-                return new Multiplication();
-            case "/":
-                return new Division();
-            case "^":
-                return new Power();
-            case "log":
-                return new Logarithm();
-            case "root":
-                return new RootPow();
-        }
-        return null;
-    }
-
-    private static String[] parceExpression(){
-        System.out.println("Enter operation");
-        String inputString = null;
-        if(scanner.hasNextLine()){
-            inputString = scanner.nextLine();
-        }
-        return inputString.split(" ");
     }
 
     public static void main(String[] args) {
 
-        String[] expression = parceExpression();
-        double left = Double.parseDouble(expression[0]);
+        String[] expression = null;
+        double result = 0;
+        try {
+            expression = parser.parceExpression();
+        } catch (InvalidExpressionFormatException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        double left = 0;
+        double right = 0;
+        try {
+            left = Double.parseDouble(expression[0]);
+            right = Double.parseDouble(expression[2]);
+        } catch (NumberFormatException nfe) {
+            System.err.println(nfe.toString());
+            result = NaN;
+        }
         String operator = expression[1];
-        double right = Double.parseDouble(expression[2]);
         Calculator calculator = new Calculator();
-        System.out.println(calculator.calculate(left, right, operator));
+        result = calculator.calculate(left, right, operator);
+        System.out.printf("result = %f%n", result);
     }
 }
