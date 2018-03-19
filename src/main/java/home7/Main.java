@@ -8,12 +8,19 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public class Main {
 
+    /**
+    Статические поля используются только как константы
+    Не очень хорошая идея хранить тут переменные main
+    **/
     static Path file;
     static String searchedString;
     static FilePhraseSearcher filePhraseSearcher;
 
     public static void main(String[] args) throws IOException {
 
+        /**
+        Вот тут лучше объявить
+        **/
         try {
             file = Paths.get(args[0]);
             searchedString = args[1];
