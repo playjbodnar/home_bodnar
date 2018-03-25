@@ -31,12 +31,18 @@ public class FileWordsCounter extends SimpleFileVisitor<Path> {
     private List<String> parseLine(String line) {
         List<String> words = new ArrayList<>();
         if((line.length() == 0) || (line == null)){
+            //а вот тут возвращаем Collections.emptyList();
+            //тогда лишний раз не будем "мусорить" в heap, создавая лишний объект
             return words;
         }
+        //Вот тут лучше создать лист слов 
+        //List<String> words = new ArrayList<>();
         if(!containsSeparators(line)){
+            //как по мне, не очень нужно действие 
             words.add(line);
             return words;
         } else {
+            //вот этого было бы достаточно для всех случаев
              for(String word: Arrays.asList(line.split(SEPARATORS_REGEX))) {
                  words.addAll(parseLine(word));
              }
@@ -58,6 +64,7 @@ public class FileWordsCounter extends SimpleFileVisitor<Path> {
                     }
                 }
             }
+            //Слова должны быть отсортированы в алфавитном порядке!
             for (String word : wordsCounter.keySet()) {
                 writer.write(String.format("%s   -   %d%n", word, wordsCounter.get(word)));
             }
